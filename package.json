@@ -8,7 +8,7 @@
     "start": "node index.js",
     "dev": "nademon index.js"
   },
-  "author": "",
+  "author": "Aleksandr Genov",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^3.0.1"
