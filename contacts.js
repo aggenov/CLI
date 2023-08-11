@@ -28,21 +28,16 @@ async function listContacts() {
 // Возвращает объект контакта с таким id. Возвращает null, если объект с таким id не найден.
 async function getContactById(id) {
   const data = await read();
-  if (!data) {
-    throw new Error("Contact not found");
-    return null;
-  }
+  const result = data.find((contact) => contact.id === id);
 
-  return data.find((contact) => contact.id === id);
+  return result || null;
 }
 
 // Возвращает объект удаленного контакта. Возвращает null, если объект с таким id не найден.
 async function removeContact(contactId) {
   const data = await read();
 
-  const index = data.findIndex(
-    (contact) => contact.id.toString() === contactId.toString()
-  );
+  const index = data.findIndex((contact) => contact.id === contactId);
 
   if (index === -1) {
     return null;
